@@ -20,6 +20,16 @@ export default class Main extends Component {
     window.open(url, '_blank', 'width=1024,height=600,menubar=no,toolbar=no,location=no,personalbar=no,status=no,chrome=yes,modal=yes');
   }
 
+  fetchScreenArtist(id = 0) {
+    const url = `https://nd-test.symbio.now.sh/api/subtitles/proxyArtist?&id=${id}`;
+    window.open(url, '_blank', 'width=1024,height=600,menubar=no,toolbar=no,location=no,personalbar=no,status=no,chrome=yes,modal=yes');
+  }
+
+  fetchScreenRoles(id = 0) {
+    const url = `https://nd-test.symbio.now.sh/api/subtitles/proxyRoles?&id=${id}`;
+    window.open(url, '_blank', 'width=1024,height=600,menubar=no,toolbar=no,location=no,personalbar=no,status=no,chrome=yes,modal=yes');
+  }
+
   render() {
     const { itemType, itemId } = this.props;
 
@@ -27,10 +37,11 @@ export default class Main extends Component {
       case '111456': // inscenace
         return (
           <div className="container">
-            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('home', `p${itemId}`)}>Úvodní stránka představení</button><br/>
-            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('currentplay', `p${itemId}`)}>O představení</button><br/>
-            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('participants', `p${itemId}`)}>Obsazení</button><br/>
-            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('participantdetail', `p${itemId}`)}>Detail umělce</button>
+            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('home', `p${itemId}`)}>Úvodní stránka představení</button>
+            <br />
+            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('currentplay', `p${itemId}`)}>O představení</button>
+            <br />
+            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('participants', `p${itemId}`)}>Obsazení</button>
           </div>
         );
 
@@ -61,14 +72,17 @@ export default class Main extends Component {
           </div>
         );
 
-      default:
+      case '107442': // umelec
         return (
           <div className="container">
-            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('home', itemId)}>Úvodní stránka představení</button><br/>
-            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('currentplay', itemId)}>O představení</button><br/>
-            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('participants', itemId)}>Obsazení</button><br/>
-            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('participantdetail', itemId)}>Detail umělce</button>
+            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreenRoles(itemId)}>Obsazení</button>
+            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreenArtist(itemId)}>Detail umělce</button>
           </div>
+        );
+
+      default:
+        return (
+          <div className="container" />
         );
     }
   }
