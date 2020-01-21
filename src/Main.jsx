@@ -68,7 +68,7 @@ export default class Main extends Component {
       case '138076': // uvitaci obrazovka
         return (
           <div className="container">
-            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('welcome')}>Otevřít náhled</button>
+            <button type="button" className="DatoCMS-button DatoCMS-button--micro" onClick={() => this.fetchScreen('break')}>Otevřít náhled</button>
           </div>
         );
 
