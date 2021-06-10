@@ -16,17 +16,17 @@ export default class Main extends Component {
   };
 
   fetchScreen(type, id = 0) {
-    const url = `https://nd-test.symbio.now.sh/api/subtitles/proxy?type=${type}${id ? `&id=${id}` : ''}`;
+    const url = `https://nd-test.symbio.vercel.app/api/subtitles/proxy?type=${type}${id ? `&id=${id}` : ''}`;
     window.open(url, '_blank', 'width=1024,height=600,menubar=no,toolbar=no,location=no,personalbar=no,status=no,chrome=yes,modal=yes');
   }
 
   fetchScreenArtist(id = 0) {
-    const url = `https://nd-test.symbio.now.sh/api/subtitles/proxyArtist?id=${id}`;
+    const url = `https://nd-test.symbio.vercel.app/api/subtitles/proxyArtist?id=${id}`;
     window.open(url, '_blank', 'width=1024,height=600,menubar=no,toolbar=no,location=no,personalbar=no,status=no,chrome=yes,modal=yes');
   }
 
   fetchScreenRoles(id = 0) {
-    const url = `https://nd-test.symbio.now.sh/api/subtitles/proxyRoles?id=${id}`;
+    const url = `https://nd-test.symbio.vercel.app/api/subtitles/proxyRoles?id=${id}`;
     window.open(url, '_blank', 'width=1024,height=600,menubar=no,toolbar=no,location=no,personalbar=no,status=no,chrome=yes,modal=yes');
   }
 
